@@ -62,10 +62,37 @@ body::after{
 }
 
 /* 主題色 */
-.theme-blue{ --bg:#071821; --panel:#06131a; --accent:#3bdcff; --accentText:#002733; --glow:rgba(59,220,255,.35); }
-.theme-green{ --bg:#051b12; --panel:#04140d; --accent:#00ff88; --accentText:#002b19; --glow:rgba(0,255,136,.35); }
-.theme-yellow{ --bg:#1a1606; --panel:#141104; --accent:#ffe066; --accentText:#2b2400; --glow:rgba(255,224,102,.35); }
-.theme-red{ --bg:#1b0707; --panel:#140505; --accent:#ff4d4d; --accentText:#2b0000; --glow:rgba(255,77,77,.35); }
+.theme-blue{
+  --bg:#071821; --panel:#06131a;
+  --accent:#3bdcff; --accentText:#002733;
+  --glow:rgba(59,220,255,.35);
+  --grid:rgba(223,246,255,.06);
+}
+.theme-green{
+  --bg:#051b12; --panel:#04140d;
+  --accent:#00ff88; --accentText:#002b19;
+  --glow:rgba(0,255,136,.35);
+  --grid:rgba(223,246,255,.06);
+}
+/* ✅ 新增：紫色（給「幾乎沒吃」象限） */
+.theme-purple{
+  --bg:#120a24; --panel:#0c0619;
+  --accent:#b783ff; --accentText:#1b0033;
+  --glow:rgba(183,131,255,.35);
+  --grid:rgba(223,246,255,.05);
+}
+.theme-yellow{
+  --bg:#1a1606; --panel:#141104;
+  --accent:#ffe066; --accentText:#2b2400;
+  --glow:rgba(255,224,102,.35);
+  --grid:rgba(223,246,255,.06);
+}
+.theme-red{
+  --bg:#1b0707; --panel:#140505;
+  --accent:#ff4d4d; --accentText:#2b0000;
+  --glow:rgba(255,77,77,.35);
+  --grid:rgba(223,246,255,.06);
+}
 
 header{
   padding:16px 10px 10px;
@@ -823,7 +850,8 @@ function resolveOutcome(mode){
     const msg = (fullness <= 30)
       ? "才剛開始吃｜還可以吃很多口"
       : "進食量偏低｜還可以吃很多口";
-    return { fullness, themeAfter:"theme-green", stateAfter:"幾乎沒吃", adviceAfter: msg };
+    /* ✅ 只改這裡：幾乎沒吃 -> 紫色 */
+    return { fullness, themeAfter:"theme-purple", stateAfter:"幾乎沒吃", adviceAfter: msg };
   }
 
   if(mode === "green"){ // 60-72（偏保守 58-70）
